@@ -1,0 +1,55 @@
+/*-----------------------------
+   MENUDEMO.RC resource script
+  -----------------------------*/
+
+#include <windows.h>
+#include "menudemo.h"
+
+MenuDemo MENU
+     {
+     POPUP "Movimento asse"
+          {
+          MENUITEM "Nord",                           IDM_NORD
+          MENUITEM "Sud",                            IDM_SUD
+          MENUITEM "Est",                            IDM_EST
+          MENUITEM "Ovest",                          IDM_OVEST
+          MENUITEM SEPARATOR
+          MENUITEM "Perenne",                        IDM_PERENNE
+          MENUITEM "Ferma",                          IDM_FERMA      GRAYED
+          MENUITEM SEPARATOR
+          MENUITEM "Uscita",                         IDM_EXIT
+          }
+     POPUP "Marcatori"
+          {
+          MENUITEM "Paralleli a 5°",                 IDM_PARALLELI
+          MENUITEM "Meridiani a 10°",                IDM_MERIDIANI
+          MENUITEM "Fusi orari (15°)",               IDM_FUSIORARI
+          MENUITEM "Tropici (+/-23.5°)",             IDM_TROPICI
+          MENUITEM "Circoli Polari (+/- 66,5°)",     IDM_CIRCOLI
+          MENUITEM "Equatore",                       IDM_EQUATORE
+          MENUITEM "Meridiano di Greenwich",         IDM_GREENWICH
+          }
+     POPUP "Controllo Posizione"
+          {
+          MENUITEM "Osservazione a (Long,Lat)...",   IDM_LONGLAT
+          MENUITEM "Avvicinamento",                  IDM_AVVICINAMENTO
+          MENUITEM "Allontanamento",                 IDM_ALLONTANAMENTO
+          MENUITEM "Riprisino",                      IDM_RIPRISTINO
+          }
+     POPUP "?"
+          {
+          MENUITEM "About",                          IDM_ABOUT
+          }
+     }
+
+longLatBox DIALOG DISCARDABLE  0, 0, 187, 91
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,65,62,50,14
+    EDITTEXT        IDC_EDIT1,109,16,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,109,36,40,14,ES_AUTOHSCROLL
+    LTEXT           "Longitudine",-1,41,18,36,8
+    LTEXT           "Latitudine",-1,43,39,30,8
+END
